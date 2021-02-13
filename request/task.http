@@ -15,7 +15,7 @@ POST http://localhost:4000/api/tasks
     Content-Type: application/json
 
 {
-    "title": "Hacer lo que me pasaron.",
-    "descripcion": "Tarea dada por la directora.",
+    "title": "Revisar la DB.",
+    "descripcion": "Controlar si se guardan bien los datos en sus props.",
     "done": "false"
 }
