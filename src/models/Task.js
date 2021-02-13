@@ -19,7 +19,6 @@ const taskSchema = new Schema({
         type: Boolean,
         default: false,
     },
-
 },
 {  //props que se agregan internamente. false en version y le sumamos los datos del tiempo de creacion.  
    versionKey: false,
