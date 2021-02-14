@@ -3,19 +3,24 @@
 //Acá interactuamos con nuestra API con esta extensión "REST CLIENT"
 
 //RUTAS
-
-###
+### Inicio
 GET http://localhost:4000
 
-###
+### Devuelve todas las tareas que hay
 GET http://localhost:4000/api/tasks
 
-###
+### find por ID
+GET http://localhost:4000/api/tasks/60283c0156a2c66f21bb5c36
+
+### find por ID y borrarla, este ID ya fue borrado
+DELETE  http://localhost:4000/api/tasks/60296a69556a387ce65a580a
+
+### Crea una tarea
 POST http://localhost:4000/api/tasks
     Content-Type: application/json
 
 {
-    "title": "Revisar la DB.",
-    "descripcion": "Controlar si se guardan bien los datos en sus props.",
+    "title": "última creada.",
+    "descripcion": "jugando con la creación de una API",
     "done": "false"
 }

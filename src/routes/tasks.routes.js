@@ -1,23 +1,22 @@
 //ESC6 siempre, buenas practicas
 import {Router} from 'express';
-import Task from '../models/Task';
+//importamos todas las funciones del controlador
+import * as taskController from '../controllers/task.controller'
+
 
 const router = Router();
 
-router.get('/', (req, res) => { 
-    res.send('Tasks')
-});
+//Ruta GET que devuelve todas las tareas dadas.
+router.get('/', taskController.findAllTasks);
 
-router.post('/', async (req, res) => { 
-    //Guardamos la tarea nueva en una constante. 
-    const newTask = new Task({
-        title: req.body.title,
-        descripcion: req.body.descripcion,
-    });
-    await newTask.save();//Guardamos la tarea en la DB
-    console.log(newTask);
-    res.json({message: "New Task created"});
+//Creamos una tarea nueva con esta ruta y la guardamos
+router.post('/', taskController.createTask);
 
-});
+//Ruta para buscar tarea por ID
+router.get('/:id', taskController.findById)
+
+//Ruta para borrar tarea por ID
+router.delete('/:id', taskController.deleteTask)
+
 
 export default router;

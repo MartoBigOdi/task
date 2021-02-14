@@ -16,7 +16,7 @@ app.use(morgan("Estas en desarrollo"));
 
 
 app.get('/', (req, res) => {
-    res.json({message: 'Hola Giles'})
+    res.json({message: 'Prueba de API con MONGO DB'})
 });
 //De esta manera le ponemos '/' cuantos queramos a las rutas que vienen de esta dirección. 
 app.use('/api/tasks', TasksRoutes);
