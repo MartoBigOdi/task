@@ -13,14 +13,27 @@ GET http://localhost:4000/api/tasks
 GET http://localhost:4000/api/tasks/60283c0156a2c66f21bb5c36
 
 ### find por ID y borrarla, este ID ya fue borrado
-DELETE  http://localhost:4000/api/tasks/60296a69556a387ce65a580a
+DELETE  http://localhost:4000/api/tasks/602a8cbd19f2ea884d8a44da
 
 ### Crea una tarea
 POST http://localhost:4000/api/tasks
     Content-Type: application/json
 
 {
-    "title": "última creada.",
-    "descripcion": "jugando con la creación de una API",
-    "done": "false"
+    "title": "Probando la props done",
+    "descripcion": "Usamos un ternario para verificar el valor en la respuesta.",
+    "done": true
+}
+
+### Devuelve todas las tareas done: true
+GET http://localhost:4000/api/tasks/done
+
+###
+PUT http://localhost:4000/api/tasks/60296c7c73d7457d507e4a6f
+    Content-Type: application/json
+
+{
+    "title": "Probando PUT ",
+    "descripcion": "Esta tarea fue actualizada mediante un método PUT",
+    "done": true
 }
