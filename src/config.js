@@ -4,5 +4,5 @@ import { config } from "dotenv";
 config();
 
 export default{
-    mongodbURL: process.env.URI_MONGODB
+    mongodbURL: process.env.URI_MONGODB || "mongodb://localhost/tasksapi"
 }; 

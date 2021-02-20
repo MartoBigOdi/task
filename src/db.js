@@ -6,11 +6,17 @@ import 'colors';
 
 //Connection DB
 (async () => {
-    const database = await mongoose.connect(config.mongodbURL, {
+    try {
+        const database = await mongoose.connect(config.mongodbURL, {
         useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
-    console.log(" Name DB connected:".trap.blue, database.connection.name.blue);
+        useUnifiedTopology: true,
+        useFindAndModify: false
+        });
+        console.log("DB:".trap.blue, database.connection.name.blue);
+    }
+    catch (error){
+        console.log(error)
+    }
 })();
 
 
