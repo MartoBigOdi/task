@@ -4,7 +4,15 @@ import Task from '../models/Task';
 
 //exportamos la constante donde guardamos el método que nos trae todas las consultas de la DB
 export const findAllTasks = async (req, res) => {
-    const task = await Task.find() //Consultamos ala DB y lo guardamos en una const para luego devolver al cliente.
+    const task = await Task.find()
+    if (!task) {
+        return res
+            .status(400)
+            .send({
+                message: "Cannot connectec to DB"
+            })
+    }
+    //Consultamos ala DB y lo guardamos en una const para luego devolver al cliente.
     try {
         res.json(task);
     } catch (error) {
