@@ -1,10 +1,17 @@
 //ESC6 siempre, buenas practicas
 //Importamos el modelo de la DB para poder utilizar sun métodos, find() o save() por ejemplo.
 import Task from '../models/Task';
+import {getPagination} from '../libs/getPagination'
 
 //exportamos la constante donde guardamos el método que nos trae todas las consultas de la DB
 export const findAllTasks = async (req, res) => {
-    const task = await Task.find()
+    
+    //Controlamos la paginación con Mongoose-Paginate-v12
+    const {size, page} = req.query;
+    const {limit, offset} =  getPagination(page, size);
+
+    const task = await Task.paginate({}, {offset
+        ,limit})
     if (!task) {
         return res
             .status(400)
